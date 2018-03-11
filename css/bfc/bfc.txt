@@ -1,0 +1,19 @@
+## BFC是Block Formatting Context （块级格式化上下文）的缩写
+
+## 创建bfc
+
+1. body
+2. 浮动元素
+3. 绝对定位元素 (absolute | fixed)
+4. 行内块元素
+5. overflow非visible
+6. 表格的单元格
+
+## 布局规则
+
+1. box垂直排列
+2. margin坍塌
+3. 每个元素的margin box的左边， 与包含块border box的左边相接触
+4. BFC的区域不会与float box重叠
+5. BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素。反之也如此
+6. 计算BFC的高度时，浮动元素也参与计算 (运用：clearfix)

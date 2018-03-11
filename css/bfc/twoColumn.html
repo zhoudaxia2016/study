@@ -1,0 +1,27 @@
+<div>
+  <div class="left"></div>
+  <p class="right">注意，"display:table" 本身并不产生"block formatting contexts"。但是，它可以产生匿名框，其中包含"display:table-cell" 的框会产生块格式化上下文。总之，对于"display:table" 的元素，产生块格式化上下文的是匿名框而不是"display:table" 。
+    注意，是这些元素创建了块格式化上下文，它们本身不是块格式化上下。
+    往往可能大家都会选择利用margin－left来强行让p的容器有一个左边距，而距离恰好为Floated div的宽度，但现在我们可以利用BFC更好的解决这个问题。
+  </p>
+</div>
+
+<!-- 利用bfc区域不与float box重叠实现两栏布局 -->
+<div>
+  <div class="left"></div>
+  <p class="bfc right">注意，"display:table" 本身并不产生"block formatting contexts"。但是，它可以产生匿名框，其中包含"display:table-cell" 的框会产生块格式化上下文。总之，对于"display:table" 的元素，产生块格式化上下文的是匿名框而不是"display:table" 。
+    注意，是这些元素创建了块格式化上下文，它们本身不是块格式化上下。
+</div>
+
+<style type="text/css" media="all">
+  .left {
+    float: left;
+    background: #aaf;
+    width: 50px;
+    height: 50px;
+  }
+
+  .bfc {
+    overflow: hidden;
+  }
+</style>

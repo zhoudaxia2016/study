@@ -1,0 +1,35 @@
+<!-- 通过最后添加一个元素设置clear属性 -->
+<div class="par">
+  <p class="float"></p>
+</div>
+
+<div class="par cl">
+  <p class="float"></p>
+</div>
+
+<style>
+  * {
+    margin: 0;
+  }
+
+  .float {
+    float: left;
+    height: 50px;
+    width: 50px;
+    background: #aff;
+  }
+
+  .par {
+    border: 2px solid #333;
+  }
+
+  .cl {
+    margin-top: 60px;
+  }
+
+  .cl::after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+</style>

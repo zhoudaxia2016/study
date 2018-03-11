@@ -1,0 +1,31 @@
+<!-- 通过overflow产生新的bfc来clearfix -->
+<div class="par">
+  <p>13213</p>
+  <p class="float"></p>
+</div>
+
+<div class="par cl">
+  <p class="float"></p>
+</div>
+
+<style>
+  * {
+    margin: 0;
+  }
+
+  .float {
+    float: left;
+    height: 50px;
+    width: 50px;
+    background: #aff;
+  }
+
+  .par {
+    border: 2px solid #333;
+  }
+
+  .cl {
+    margin-top: 60px;
+    overflow: hidden;
+  }
+</style>
