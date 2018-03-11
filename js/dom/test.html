@@ -1,0 +1,19 @@
+<div id='a'>
+  <p></p>
+</div>
+
+<div id='b'>
+  1
+  <p>2<p>21</p>3</p>
+</div>
+
+<script>
+console.log(document.getElementById('a').childElementCount)
+console.log(document.getElementById('a').childNodes.length)
+console.log(document.getElementById('b').childElementCount)
+console.log(document.getElementById('b').childNodes.length)
+let c = document.getElementById('b').childNodes
+for(let i = 0; i < c.length; i ++){
+  console.log(c[i])
+}
+</script>
