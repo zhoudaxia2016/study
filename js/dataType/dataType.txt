@@ -1,0 +1,8 @@
+## primitive type
+number boolean string undefined null
+
+## reference type
+object
+
+## typeof type
+number boolean string object undefined
