@@ -1,0 +1,120 @@
+<html>
+  <head>
+    <script src="https://cdn.bootcss.com/vue/2.5.13/vue.js"></script>
+  </head>
+  <body>
+    <!-- 1.文本插值 -->
+    <div id="app">
+      {{ msg }}
+    </div>
+
+    <!-- 2.绑定元素属性 -->
+    <div id="app2" :title="msg">
+      鼠标悬停几秒钟查看此处动态绑定的提示信息！
+    </div>
+
+    <!-- 3.v-if -->
+    <div id="app3">
+      <p v-if="seen">应该能看到我</p>
+      <p v-if="!seen">应该不能看到我</p>
+    </div>
+
+    <!-- 4.v-for -->
+    <div id="app4">
+      <p v-for="todo in todos">{{ todo.text }}</p>
+    </div>
+
+    <!-- 5.事件绑定 -->
+    <div id="app5">
+      <p>{{ msg }}</p>
+      <button @click="reverse">逆转</button>
+    </div>
+
+    <!-- 6.v-model -->
+    <!-- v-model背后是啥？ -->
+    <div id="app6">
+      <p>{{ msg }}</p>
+      <input v-model="msg">
+    </div>
+
+    <!-- 7.组件 -->
+    <!-- 为什么需要key？-->
+    <div id="app7">
+      <todo-item v-for="(todo, index) in todos" :todo="todo" :key="index"></todo-item>
+    </div>
+
+    <script>
+      let app = new Vue({
+        el: '#app',
+        data: {
+          msg: 'Hello Vue'
+        }
+      })
+      // Test responsible
+      setTimeout(function () {
+        app.msg = 'Hello World!'
+      }, 3000)
+
+      let app2 = new Vue({
+        el: '#app2',
+        data: {
+          msg: '页面加载于 ' + new Date().toLocaleString()
+        }
+      })
+
+      let app3 = new Vue({
+        el: '#app3',
+        data: {
+          seen: true
+        }
+      })
+
+      let app4 = new Vue({
+        el: '#app4',
+        data: {
+          todos: [
+            { text: '学习 JavaScript' },
+            { text: '学习 Vue' },
+            { text: '整个牛项目' }
+          ]
+        }
+      })
+
+      let app5 = new Vue({
+        el: '#app5',
+        data: {
+          msg: 'Hello World!'
+        },
+        methods: {
+          reverse () {
+            this.msg = this.msg.split('').reverse().join('')
+          }
+        }
+      })
+
+      let app6 = new Vue({
+        el: '#app6',
+        data: {
+          msg: 'Hello!'
+        }
+      })
+
+      Vue.component('todo-item',{
+        props: ['todo'],
+        template: '<p>{{ todo.text }}</p>'
+      })
+
+      let app7 = new Vue({
+        el: '#app7',
+        data: {
+          todos: [
+            { text: '学习 JavaScript' },
+            { text: '学习 Vue' },
+            { text: '整个牛项目' }
+          ]
+        }
+      })
+
+    </script>
+  </body>
+</html>

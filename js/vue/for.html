@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <script src="https://cdn.bootcss.com/vue/2.5.13/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <!-- v-for 迭代对象 -->
+      <div v-for="(val, k) in mike">
+        {{ k + ':' + val }}
+      </div>
+      <!-- v-for优先级比v-if高 -->
+      <div v-for="color in colors" v-if="color!=='red'">
+      <!-- 使用template可以让v-if作用于整个v-for循环 -->
+      <template v-if="false">
+        <div v-for="color in colors">
+      </template>
+        {{ color }}
+      </div>
+    </div>
+    <script charset="utf-8">
+        let app = new Vue({
+          el: '#app',
+          data: {
+            mike: {
+              age: 10,
+              name: 'mike'
+            },
+            colors: ['red', 'white', 'black']
+          }
+        })
+        // 可以触发视图更新的数组函数
+        setTimeout(function () {
+          app.colors.push('blue')
+        }, 1000)
+        setTimeout(function () {
+          app.colors.reverse()
+        }, 2000)
+        setTimeout(function () {
+          app.colors[2] = 'hello'
+        }, 3000)
+        setTimeout(function () {
+          Vue.set(app.colors, 2, 'HELLO')
+        }, 4000)
+    </script>
+  </body>
+</html>
