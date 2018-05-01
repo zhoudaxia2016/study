@@ -1,0 +1,48 @@
+<html>
+  <head>
+<style>
+.content {
+  float: left;
+  width: 100%;
+}
+.main {
+  margin-left: 110px;
+  margin-right: 210px;
+  height: 200px;
+  background: blue;
+}
+
+.left {
+  float: left;
+  margin-left: -100%;
+  width: 100px;
+  height: 200px;
+  background: red;
+}
+
+.right {
+  float: right;
+  margin-left: -200px;
+  height: 200px;
+  width: 200px;
+  background: green;
+}
+</style>
+  </head>
+  <body>
+    <!-- 
+      1. 让main元素首先加载，left与right设置了float，掉到了main下面
+      2. 使用margin负值让left与right上移，需将main设置为浮动
+      3. 则main需要设置宽度，但是又不能定宽，那就设置为100%，再设置子元素
+      4. 所以加了一个wrapper，即content，再设置main的margin，挤出空间给left与right
+      5. left直接margin-left: -100%刚好上移到同样的位置。
+      6. right设置margin-right: -200px将right上移，然后右浮动。margin-right可以设置任意大于right宽度的值
+    -->
+    <div class="content">
+      <div class="main"></div>
+    </div>
+    <div class="left"></div>
+    <div class="right"></div>
+  </body>
+</html>
+

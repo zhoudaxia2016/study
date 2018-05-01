@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <style>
+.container {
+  display: flex;
+  height: 200px;
+}
+
+.left {
+  margin-right: 10px;
+  width: 100px;
+  height: 200px;
+  order: -1;
+  background: green;
+}
+.right {
+  margin-left: 10px;
+  width: 200px;
+  height: 200px;
+  order: 1;
+  background: red;
+}
+.main {
+  flex-grow: 1;
+  height: 200px;
+  background: blue;
+}
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="main"></div>
+      <div class="left"></div>
+      <div class="right"></div>
+    </div>
+  </body>
+</html>
+
